@@ -1,9 +1,17 @@
 import React from 'react';
+
 import WizardShape from '../shapes/WizardShape';
-import WizardTypes from '../data/WizardTypes';
+import Stats from './Stats';
+import CharacterHeader from './CharacterHeader';
+
+import './Wizard.css';
 
 const Wizard = ({ wizard }) => {
-  return <div>{WizardTypes[wizard.wizardType].name}</div>;
+  return (
+    <div className="wizard">
+      <CharacterHeader name={wizard.name} wizardType={wizard.wizardType} />
+      <Stats character={wizard} />
+    </div>);
 };
 
 Wizard.propTypes = {

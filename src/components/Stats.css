@@ -1,0 +1,8 @@
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.span-2 {
+  grid-column: 7 / span 2;
+}

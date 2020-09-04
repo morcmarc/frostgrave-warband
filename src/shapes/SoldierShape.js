@@ -7,5 +7,5 @@ export default PropTypes.shape({
   ...CharacterShape,
   isSpecialist: PropTypes.bool.isRequired,
   cost: PropTypes.number.isRequired,
-  features: PropTypes.arrayOf(features)
+  features: PropTypes.arrayOf(PropTypes.oneOf(features))
 })

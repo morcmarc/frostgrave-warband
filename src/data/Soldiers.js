@@ -3,6 +3,8 @@ import { ANIMAL, NO_CARRY, HAND_WEAPON } from "./CharacterFeatures";
 export const WAR_HOUND = Symbol('War Hound');
 export const THUG = Symbol('Thug');
 
+export const soldierTypes = [WAR_HOUND, THUG];
+
 export default {
   [WAR_HOUND]: {
     name: 'War Hound',
@@ -13,7 +15,10 @@ export default {
     will: 2,
     health: 8,
     cost: 10,
-    features: [ANIMAL, NO_CARRY]
+    features: [ANIMAL, NO_CARRY],
+    soldierType: WAR_HOUND,
+    itemLimit: 0,
+    isSpecialist: false,
   },
   [THUG]: {
     name: 'Thug',
@@ -24,6 +29,9 @@ export default {
     will: -1,
     health: 10,
     cost: 0,
-    features: [HAND_WEAPON]
+    features: [HAND_WEAPON],
+    soldierType: THUG,
+    itemLimit: 1,
+    isSpecialist: false,
   }
 };
