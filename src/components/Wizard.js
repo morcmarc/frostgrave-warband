@@ -9,7 +9,7 @@ import './Wizard.css';
 const Wizard = ({ wizard }) => {
   return (
     <div className="wizard">
-      <CharacterHeader name={wizard.name} wizardType={wizard.wizardType} />
+      <CharacterHeader name={wizard.name} wizardType={wizard.wizardType} isApprentice={wizard.isApprentice} />
       <Stats character={wizard} />
     </div>);
 };

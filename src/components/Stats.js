@@ -8,27 +8,37 @@ import SoldierShape from '../shapes/SoldierShape';
 
 const formatFeatures = features => features.map(feature => CharacterFeatures[feature].name).join(', ');
 
+const formatStat = stat => stat > 0 ? `+${stat}` : stat === 0 ? stat : `-${stat}`;
+
 export const Stats = ({ character }) => {
-  const { move, fight, shoot, armour, will, health, level, experience, features } = character;
+  const { move, fight, shoot, armour, will, health, level, experience, features, isApprentice } = character;
   return (<div className="stats">
-    <span>Move</span>
-    <span>Fight</span>
-    <span>Shoot</span>
-    <span>Armour</span>
-    <span>Will</span>
-    <span>Health</span>
-    {level && <span>Level</span>}
-    {experience && <span>Experience</span>}
-    {features && <span className="span-2">Features</span>}
+    <span className="highlight">Move</span>
+    <span className="highlight">Fight</span>
+    <span className="highlight">Shoot</span>
+    <span className="highlight">Armour</span>
+    <span className="highlight">Will</span>
+    <span className="highlight">Health</span>
+    
+    {level && !isApprentice && <span className="highlight">Level</span>}
+    {typeof experience === 'number' && !isApprentice && <span className="highlight">Experience</span>}
+    
+    {isApprentice && <span className="span-2"></span>}
+
+    {features && <span className="span-2 highlight">Features</span>}
 
     <span>{move}</span>
-    <span>{fight}</span>
-    <span>{shoot}</span>
+    <span>{formatStat(fight)}</span>
+    <span>{formatStat(shoot)}</span>
     <span>{armour}</span>
-    <span>{will}</span>
+    <span>{formatStat(will)}</span>
     <span>{health}</span>
-    {level && <span>{level}</span>}
-    {experience && <span>{experience}</span>}
+    
+    {level && !isApprentice && <span>{level}</span>}
+    {typeof experience === 'number' && !isApprentice && <span>{experience}</span>}
+    
+    {isApprentice && <span className="span-2"></span>}
+
     {features && <span className="span-2">{formatFeatures(features)}</span>}
   </div>);
 };

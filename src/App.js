@@ -7,6 +7,15 @@ import './App.css';
 import Soldier from './components/Soldier';
 import Soldiers, { WAR_HOUND } from './data/Soldiers';
 
+const createApprentice = (wizard, name) => ({
+  ...wizard,
+  name,
+  fight: wizard.fight - 2,
+  will: wizard.will - 2,
+  health: wizard.health -2,
+  isApprentice: true,
+});
+
 function App() {
   const [wizard, setWizard] = useState({
     name: 'Gandalf',
@@ -22,6 +31,8 @@ function App() {
     itemLimit: 5,
   });
 
+  const [apprentice, setApprentice] = useState(createApprentice(wizard, "Saruman"));
+
   const [warhound, setWarhound] = useState({
     ...Soldiers[WAR_HOUND],
     name: 'Bingo',
@@ -29,7 +40,9 @@ function App() {
 
   return (
     <div className="container">
+      <h1 className="title">Wizard Sheet</h1>
       <Wizard wizard={wizard}/>
+      <Wizard wizard={apprentice}/>
       <Soldier soldier={warhound}/>
     </div>
   );

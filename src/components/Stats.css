@@ -6,3 +6,8 @@
 .span-2 {
   grid-column: 7 / span 2;
 }
+
+.statName {
+  font-family: NotoSerif-Regular, serif;
+  font-weight: bold;
+}

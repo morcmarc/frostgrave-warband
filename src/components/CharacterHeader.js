@@ -21,9 +21,9 @@ const getType = (wizardType) => wizardType ? 'School' : 'Type';
 
 export const CharacterHeader = ({ name, wizardType, soldierType, isApprentice }) => {
   return <div className="characterHeader">
-    <span>{getTitle(wizardType, soldierType, isApprentice)}</span>
+    <span className="blue highlight">{getTitle(wizardType, soldierType, isApprentice)}</span>
     <span>{name}</span>
-    <span>{getType(wizardType)}</span>
+    <span className="blue highlight">{getType(wizardType)}</span>
     <span>{wizardType ? WizardTypes[wizardType].name : Soldiers[soldierType].name}</span>
   </div>
 };

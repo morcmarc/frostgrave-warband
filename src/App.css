@@ -2,5 +2,26 @@
   width: 50%;
   height: 100%;
   margin: 1rem 25% 1rem 25%;
-  background-color: aqua;
+}
+
+.container > div {
+  margin: 2rem 0rem;
+}
+
+.title {
+  font-family: NotoSerif-Regular, serif;
+}
+
+span {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+.blue {
+  background-color: #b1bfdc;
+}
+
+.highlight {
+  font-family: NotoSerif-Regular, serif;
+  font-weight: bold;
 }
