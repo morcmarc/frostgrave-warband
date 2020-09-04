@@ -1,7 +1,7 @@
-export const ILLUSIONIST = Symbol('Illusionist');
-export const ELEMENTALIST = Symbol('Elementalist');
-export const NECROMANCER = Symbol('Necromancer');
-export const SIGILIST = Symbol('Sigilist');
+export const ILLUSIONIST = 'Illusionist';
+export const ELEMENTALIST = 'Elementalist';
+export const NECROMANCER = 'Necromancer';
+export const SIGILIST = 'Sigilist';
 
 export const wizardTypes = [ILLUSIONIST, ELEMENTALIST, NECROMANCER, SIGILIST];
 
@@ -17,5 +17,17 @@ export default {
     aligned: [ELEMENTALIST],
     neutral: [],
     opposing: [],
-  }
+  },
+  [ELEMENTALIST]: {
+    name: 'Elementalist',
+    aligned: [ELEMENTALIST],
+    neutral: [],
+    opposing: [],
+  },
+  [NECROMANCER]: {
+    name: 'Nercomancer',
+    aligned: [ELEMENTALIST],
+    neutral: [],
+    opposing: [],
+  },
 };

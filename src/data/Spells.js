@@ -1,7 +1,7 @@
 import { SIGILIST } from "./WizardTypes";
 import { LINE_OF_SIGHT } from "./SpellCategories";
 
-export const PUSH = Symbol('Push');
+export const PUSH = 'Push';
 
 export default {
   [PUSH]: {
