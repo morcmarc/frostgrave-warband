@@ -1,0 +1,1 @@
+export const LINE_OF_SIGHT = Symbol('Line of sight');
