@@ -8,7 +8,7 @@ import './Soldier.css';
 
 const Soldier = ({ soldier, setSoldier }) => {
   return (
-    <div className="solider">
+    <div className="soldier">
       <CharacterHeader 
       name={soldier.name} 
       soldierType={soldier.soldierType} 

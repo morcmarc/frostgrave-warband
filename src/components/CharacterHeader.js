@@ -13,7 +13,7 @@ const getTitle = (wizardType, soldierType, isApprentice) => {
     return 'Wizard';
   }
   if (soldierType) {
-    return 'Solider';
+    return 'Soldier';
   }
 };
 
@@ -23,23 +23,23 @@ const formatSoldierType = soldierType => `${Soldiers[soldierType].name}${Soldier
 
 const WizardTypeSelector = ({ wizardType, onTypeChange }) => (
   <select onChange={(event) => onTypeChange(event.target.value)} value={wizardType}>
-    {wizardTypes.map(wt => <option value={wt}>{WizardTypes[wt].name}</option>)}
+    {wizardTypes.map(wt => <option key={wt} value={wt}>{WizardTypes[wt].name}</option>)}
   </select>);
 
 const SoldierTypeSelector = ({ soldierType, onTypeChange }) => (
   <select onChange={(event) => onTypeChange(event.target.value)} value={soldierType}>
-    {soldierTypes.map(st => <option value={st}>{formatSoldierType(st)}</option>)}
+    {soldierTypes.map(st => <option key={st} value={st}>{formatSoldierType(st)}</option>)}
   </select>);
 
 export const CharacterHeader = ({ name, wizardType, soldierType, isApprentice, onNameChange, onTypeChange }) => {
   return <div className="characterHeader">
     <span className="blue highlight">{getTitle(wizardType, soldierType, isApprentice)}</span>
-    <input onChange={(event) => onNameChange(event.target.value)}
+    <span className={isApprentice ? 'span-full' : ''}><input onChange={(event) => onNameChange(event.target.value)}
       type="text"
-      value={name} />
-    <span className="blue highlight">{getType(wizardType)}</span>
-    {wizardType && <WizardTypeSelector wizardType={wizardType} onTypeChange={onTypeChange} />}
-    {!wizardType && <SoldierTypeSelector soldierType={soldierType} onTypeChange={onTypeChange}/>}
+      value={name} /></span>
+    {!isApprentice && <span className="blue highlight">{getType(wizardType)}</span>}
+    {wizardType && !isApprentice && <span><WizardTypeSelector wizardType={wizardType} onTypeChange={onTypeChange} /></span>}
+    {!wizardType && <span><SoldierTypeSelector soldierType={soldierType} onTypeChange={onTypeChange}/></span>}
   </div>
 };
 

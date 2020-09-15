@@ -1,4 +1,22 @@
 .characterHeader {
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr 4fr;
+  grid-template-columns: 2fr 6fr 2fr 6fr;
+}
+
+.characterHeader input {
+  font-size: 1rem;
+  border: 0;
+  width: 100%;
+}
+
+.characterHeader select {
+  margin: 0;
+  font-size: 1rem;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.characterHeader .span-full {
+  grid-column: 2 / span 3;
 }

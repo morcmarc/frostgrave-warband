@@ -11,3 +11,7 @@
   font-family: NotoSerif-Regular, serif;
   font-weight: bold;
 }
+
+.centered {
+  text-align: center;
+}

@@ -55,8 +55,10 @@ export default {
     armour: 10,
     will: 0,
     health: 10,
-    cost: 20,
-    features: [DAGGER]
+    cost: 0,
+    features: [DAGGER],
+    soldierType: THIEF,
+    isSpecialist: false,
   },
   [ARCHER]: {
     name: 'Archer',
@@ -67,7 +69,9 @@ export default {
     will: 0,
     health: 10,
     cost: 50,
-    features: [BOW, DAGGER, LEATHER_ARMOUR]
+    features: [BOW, DAGGER, LEATHER_ARMOUR],
+    soldierType: ARCHER,
+    isSpecialist: true,
   },
   [CROSSBOWMAN]: {
     name: 'Crossbowman',
@@ -78,7 +82,9 @@ export default {
     will: 0,
     health: 10,
     cost: 50,
-    features: [CROSSBOW, DAGGER, LEATHER_ARMOUR]
+    features: [CROSSBOW, DAGGER, LEATHER_ARMOUR],
+    soldierType: CROSSBOWMAN,
+    isSpecialist: true,
   },
   [INFANTRYMAN]: {
     name: 'Infantryman',
@@ -89,7 +95,9 @@ export default {
     will: 0,
     health: 10,
     cost: 50,
-    features: [TWO_HANDED_WEAPON, LEATHER_ARMOUR]
+    features: [TWO_HANDED_WEAPON, LEATHER_ARMOUR],
+    soldierType: INFANTRYMAN,
+    isSpecialist: false,
   },
   [TRACKER]: {
     name: 'Tracker',
@@ -100,7 +108,9 @@ export default {
     will: 1,
     health: 12,
     cost: 80,
-    features: [STAFF, BOW, LEATHER_ARMOUR]
+    features: [STAFF, BOW, LEATHER_ARMOUR],
+    soldierType: TRACKER,
+    isSpecialist: true,
   },
   [MAN_AT_ARMS]: {
     name: 'Man-at-Arms',
@@ -111,7 +121,9 @@ export default {
     will: 1,
     health: 12,
     cost: 80,
-    features: [HAND_WEAPON, SHIELD, LEATHER_ARMOUR]
+    features: [HAND_WEAPON, SHIELD, LEATHER_ARMOUR],
+    soldierType: MAN_AT_ARMS,
+    isSpecialist: false,
   },
   [TREASURE_HUNTER]: {
     name: 'Treasure Hunter',
@@ -122,7 +134,9 @@ export default {
     will: 2,
     health: 12,
     cost: 80,
-    features: [HAND_WEAPON, DAGGER, LEATHER_ARMOUR]
+    features: [HAND_WEAPON, DAGGER, LEATHER_ARMOUR],
+    soldierType: TREASURE_HUNTER,
+    isSpecialist: true,
   },
   [KNIGHT]: {
     name: 'Knight',
@@ -133,7 +147,9 @@ export default {
     will: 1,
     health: 12,
     cost: 100,
-    features: [HAND_WEAPON, SHIELD, MAIL_ARMOUR]
+    features: [HAND_WEAPON, SHIELD, MAIL_ARMOUR],
+    soldierType: KNIGHT,
+    isSpecialist: true,
   },
   [TEMPLAR]: {
     name: 'Templar',
@@ -144,7 +160,9 @@ export default {
     will: 1,
     health: 12,
     cost: 100,
-    features: [TWO_HANDED_WEAPON, MAIL_ARMOUR]
+    features: [TWO_HANDED_WEAPON, MAIL_ARMOUR],
+    soldierType: TEMPLAR,
+    isSpecialist: true,
   },
   [RANGER]: {
     name: 'Ranger',
@@ -155,7 +173,9 @@ export default {
     will: 2,
     health: 12,
     cost: 100,
-    features: [BOW, HAND_WEAPON, LEATHER_ARMOUR]
+    features: [BOW, HAND_WEAPON, LEATHER_ARMOUR],
+    soldierType: RANGER,
+    isSpecialist: true,
   },
   [BARBARIAN]: {
     name: 'Barbarian',
@@ -167,6 +187,7 @@ export default {
     health: 14,
     cost: 100,
     features: [TWO_HANDED_WEAPON],
+    soldierType: BARBARIAN,
     isSpecialist: true,
     soldierType: BARBARIAN,
   },
@@ -179,7 +200,9 @@ export default {
     will: 0,
     health: 12,
     cost: 100,
-    features: [STAFF, START_WITH_HEALING_POTION]
+    features: [STAFF, START_WITH_HEALING_POTION],
+    soldierType: APOTHECARY,
+    isSpecialist: false,
   },
   [MARKSMAN]: {
     name: 'Marksman',
@@ -190,6 +213,8 @@ export default {
     will: 1,
     health: 12,
     cost: 100,
-    features: [CROSSBOW, HAND_WEAPON, MAIL_ARMOUR]
+    features: [CROSSBOW, HAND_WEAPON, MAIL_ARMOUR],
+    soldierType: MARKSMAN,
+    isSpecialist: true,
   },
 };
