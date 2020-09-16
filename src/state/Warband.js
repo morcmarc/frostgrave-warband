@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { EXPERIENCE, FIGHT, HEALTH, LEVEL, SHOOT, WILL } from '../data/Misc';
 
 import { generateSoldierName } from "../data/Names";
 import Soldiers, { THIEF } from "../data/Soldiers";
@@ -6,9 +7,10 @@ import Soldiers, { THIEF } from "../data/Soldiers";
 export const createApprentice = (wizard, name) => ({
   ...wizard,
   name,
-  fight: wizard.fight - 2,
-  will: wizard.will - 2,
-  health: wizard.health - 2,
+  [FIGHT]: wizard[FIGHT] - 2,
+  [SHOOT]: wizard[SHOOT] - 2 > 0 ? wizard[SHOOT] - 2 : 0,
+  [WILL]: wizard[WILL] - 2,
+  [HEALTH]: wizard[HEALTH] - 2,
   isApprentice: true,
 });
 
@@ -53,3 +55,11 @@ export const setApprentice = (warband, setWarband, apprentice) => {
   warband.apprentice = apprentice;
   setWarband({ ...warband });
 }
+
+export const levelUp = (warband, setWarband, attribute) => {
+  warband.wizard[attribute] += 1;
+  warband.wizard[LEVEL] += 1;
+  warband.wizard[EXPERIENCE] -= 100;
+  warband.apprentice = createApprentice(warband.wizard, warband.apprentice.name);
+  setWarband({ ...warband });
+};

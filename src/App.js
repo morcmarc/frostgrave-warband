@@ -6,7 +6,8 @@ import { SIGILIST } from './data/WizardTypes';
 import './App.css';
 import Soldier from './components/Soldier';
 import { generateWizardName } from './data/Names';
-import { addSoldier, createApprentice, setApprentice, setSoldier, setWizard } from './state/Warband';
+import { addSoldier, createApprentice, levelUp, setApprentice, setSoldier, setWizard } from './state/Warband';
+import { ARMOUR, FIGHT, HEALTH, LEVEL, MOVE, SHOOT, WILL, EXPERIENCE } from './data/Misc';
 
 const encodeWarband = (warband) => {
   const encoded = btoa(JSON.stringify(warband));
@@ -24,15 +25,15 @@ const decodeWarband = (encoded, setWarband) => {
 
 const DEFAULT_WIZARD = {
   name: generateWizardName(),
-  level: 1,
-  experience: 0,
+  [LEVEL]: 1,
+  [EXPERIENCE]: 0,
   wizardType: SIGILIST,
-  move: 6,
-  fight: 2,
-  shoot: 0,
-  armour: 10,
-  health: 14,
-  will: 4,
+  [MOVE]: 6,
+  [FIGHT]: 2,
+  [SHOOT]: 0,
+  [ARMOUR]: 10,
+  [HEALTH]: 14,
+  [WILL]: 4,
   itemLimit: 5,
 };
 
@@ -45,6 +46,8 @@ function App() {
     apprentice: createApprentice(DEFAULT_WIZARD, generateWizardName()),
     soldiers: []
   });
+
+  const [isLevellingUp, setIsLevellingUp] = useState(false);
 
   const warbandCost = warband.soldiers.reduce((sum, soldier) => sum + soldier.cost, 0);
 
@@ -61,16 +64,25 @@ function App() {
   return (
     <div className="container">
       <h1 className="title">Wizard Sheet</h1>
+
+      <button onClick={() => { setIsLevellingUp(true); }} disabled={isLevellingUp}>Level up</button>
+      <button onClick={() => { setIsLevellingUp(false); }} hidden={!isLevellingUp}>Save</button>
+      <button onClick={() => { setIsLevellingUp(false); }} hidden={!isLevellingUp}>Cancel</button>
+      <button onClick={() => { addSoldier(warband, setWarband); }} hidden={isLevellingUp}>Add Soldier</button>
+      <p><b>Warband Cost</b>: {warbandCost}gc</p>
+
       <Wizard
         wizard={warband.wizard}
-        setWizard={(w) => { setWizard(warband, setWarband, w); }} />
+        setWizard={(w) => { setWizard(warband, setWarband, w); }}
+        isLevellingUp={isLevellingUp}
+        levelUp={(attribute) => {
+          levelUp(warband, setWarband, attribute);
+          setIsLevellingUp(false);
+        }}/>
       <Wizard
         wizard={warband.apprentice}
         setWizard={(w) => { setApprentice(warband, setWarband, w); }} />
 
-      <button onClick={() => { addSoldier(warband, setWarband); }}>Add Soldier</button>
-      <p><b>Warband Cost</b>: {warbandCost}gc</p>
-      
       {warband.soldiers.map(soldier =>
         <Soldier
           key={soldier.uid}

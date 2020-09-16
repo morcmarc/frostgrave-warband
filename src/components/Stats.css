@@ -52,6 +52,19 @@
 
 }
 
+.improve {
+  border: 0;
+  position: absolute;
+  height: 1rem;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.improve:hover {
+  color: green;
+}
+
 .centered {
   text-align: center;
 }
