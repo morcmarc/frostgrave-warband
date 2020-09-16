@@ -7,9 +7,49 @@
   grid-column: 7 / span 2;
 }
 
-.statName {
-  font-family: NotoSerif-Regular, serif;
-  font-weight: bold;
+@media screen and (max-device-width:640px), screen and (max-width:640px) {
+  .statName--move {
+    overflow: hidden;
+  }
+  .statName--move:before {
+    content: "M";
+  }
+
+  .statName--fight {
+    overflow: hidden;
+  }
+  .statName--fight:before {
+    content: "F";
+  }
+
+  .statName--shoot {
+    overflow: hidden;
+  }
+  .statName--shoot:before {
+    content: "S";
+  }
+
+  .statName--armour {
+    overflow: hidden;
+  }
+  .statName--armour:before {
+    content: "A";
+  }
+
+  .statName--will {
+    overflow: hidden;
+  }
+  .statName--will:before {
+    content: "W";
+  }
+
+  .statName--health {
+    overflow: hidden;
+  }
+  .statName--health:before {
+    content: "H";
+  }
+
 }
 
 .centered {

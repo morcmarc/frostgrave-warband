@@ -13,12 +13,12 @@ const formatStat = stat => stat >= 0 ? `+${stat}` : stat === 0 ? stat : `${stat}
 export const Stats = ({ character }) => {
   const { move, fight, shoot, armour, will, health, level, experience, features, isApprentice } = character;
   return (<div className="stats">
-    <span className="highlight centered">Move</span>
-    <span className="highlight centered">Fight</span>
-    <span className="highlight centered">Shoot</span>
-    <span className="highlight centered">Armour</span>
-    <span className="highlight centered">Will</span>
-    <span className="highlight centered">Health</span>
+    <span className="highlight centered statName--move">Move</span>
+    <span className="highlight centered statName--fight">Fight</span>
+    <span className="highlight centered statName--shoot">Shoot</span>
+    <span className="highlight centered statName--armour">Armour</span>
+    <span className="highlight centered statName--will">Will</span>
+    <span className="highlight centered statName--health">Health</span>
     
     {level && !isApprentice && <span className="highlight centered">Level</span>}
     {typeof experience === 'number' && !isApprentice && <span className="highlight centered">Experience</span>}

@@ -4,6 +4,13 @@
   margin: 1rem 25% 1rem 25%;
 }
 
+@media screen and (max-device-width:640px), screen and (max-width:640px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 .container > div {
   margin: 2rem 0rem;
 }
