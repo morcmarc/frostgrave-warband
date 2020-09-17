@@ -6,7 +6,7 @@ import { SIGILIST } from './data/WizardTypes';
 import './App.css';
 import Soldier from './components/Soldier';
 import { generateWizardName } from './data/Names';
-import { addSoldier, createApprentice, levelUp, setApprentice, setSoldier, setWizard } from './state/Warband';
+import { addSoldier, createApprentice, levelUp, setApprentice, setSoldier, setWizard, undo, useWarband, VERSIONS } from './state/Warband';
 import { ARMOUR, FIGHT, HEALTH, LEVEL, MOVE, SHOOT, WILL, EXPERIENCE } from './data/Misc';
 
 const encodeWarband = (warband) => {
@@ -57,7 +57,7 @@ function App() {
   };
 
   if (firstLoad) {
-    decodeWarband(window.location.hash?.replace('#', ''), setWarband);
+    decodeWarband(window.location.hash?.replace('#', ''), _setWarband);
     setFirstLoad(false);
   }
 
@@ -65,8 +65,7 @@ function App() {
     <div className="container">
       <h1 className="title">Wizard Sheet</h1>
 
-      <button onClick={() => { setIsLevellingUp(true); }} disabled={isLevellingUp}>Level up</button>
-      <button onClick={() => { setIsLevellingUp(false); }} hidden={!isLevellingUp}>Save</button>
+      <button onClick={() => { setIsLevellingUp(true); }} disabled={isLevellingUp || warband.wizard[EXPERIENCE] < 100}>Level up</button>
       <button onClick={() => { setIsLevellingUp(false); }} hidden={!isLevellingUp}>Cancel</button>
       <button onClick={() => { addSoldier(warband, setWarband); }} hidden={isLevellingUp}>Add Soldier</button>
       <p><b>Warband Cost</b>: {warbandCost}gc</p>
@@ -78,7 +77,7 @@ function App() {
         levelUp={(attribute) => {
           levelUp(warband, setWarband, attribute);
           setIsLevellingUp(false);
-        }}/>
+        }} />
       <Wizard
         wizard={warband.apprentice}
         setWizard={(w) => { setApprentice(warband, setWarband, w); }} />

@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { EXPERIENCE, FIGHT, HEALTH, LEVEL, SHOOT, WILL } from '../data/Misc';
+import { ARMOUR, EXPERIENCE, FIGHT, HEALTH, LEVEL, MOVE, SHOOT, WILL } from '../data/Misc';
 
-import { generateSoldierName } from "../data/Names";
+import { generateSoldierName, generateWizardName } from "../data/Names";
 import Soldiers, { THIEF } from "../data/Soldiers";
+import { CHRONOMANCER } from '../data/WizardTypes';
+
+export const VERSIONS = {
+  V1: "V1",
+};
 
 export const createApprentice = (wizard, name) => ({
   ...wizard,
@@ -63,3 +69,8 @@ export const levelUp = (warband, setWarband, attribute) => {
   warband.apprentice = createApprentice(warband.wizard, warband.apprentice.name);
   setWarband({ ...warband });
 };
+
+export const undo = (setWarband, setHistory, history) => {
+  setWarband({ ...history.pop() });
+  setHistory(history);
+}

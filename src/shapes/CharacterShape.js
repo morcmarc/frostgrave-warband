@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
+import { ARMOUR, FIGHT, HEALTH, MOVE, SHOOT, WILL } from '../data/Misc';
 
 export default {
   name: PropTypes.string,
-  move: PropTypes.number.isRequired,
-  fight: PropTypes.number.isRequired,
-  shoot: PropTypes.number.isRequired,
-  armour: PropTypes.number.isRequired,
-  will: PropTypes.number.isRequired,
-  health: PropTypes.number.isRequired,
+  [MOVE]: PropTypes.number.isRequired,
+  [FIGHT]: PropTypes.number.isRequired,
+  [SHOOT]: PropTypes.number.isRequired,
+  [ARMOUR]: PropTypes.number.isRequired,
+  [WILL]: PropTypes.number.isRequired,
+  [HEALTH]: PropTypes.number.isRequired,
   itemLimit: PropTypes.number.isRequired,
   items: PropTypes.array
 };

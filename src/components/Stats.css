@@ -68,3 +68,10 @@
 .centered {
   text-align: center;
 }
+
+.xpField {
+  font-size: 1rem;
+  border: 0;
+  width: 100%;
+  text-align: right;
+}

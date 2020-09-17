@@ -77,6 +77,7 @@ export const Stats = ({ character, isLevellingUp, levelUp, onExperienceChange })
         <input
           onChange={(event) => onExperienceChange(event.target.value)}
           type="text"
+          className="xpField"
           value={experience} />
       </span>}
     {isApprentice && <span className="span-2"></span>}
